@@ -78,6 +78,20 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/crafted/widgets/tables' title='Tables' hasBullet={true} />
         <AsideMenuItem to='/crafted/widgets/feeds' title='Feeds' hasBullet={true} />
       </AsideMenuItemWithSub>
+
+      <div className='menu-item'>
+        <div className='menu-content pt-8 pb-2'>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Social Media</span>
+        </div>
+      </div>
+      <AsideMenuItemWithSub
+        to='/social-media/posts'
+        title='Posts'
+        icon='/media/icons/duotune/communication/com012.svg'
+      >
+        <AsideMenuItem to='/social-media/posts/comments' title='Comments' hasBullet={true} />
+      </AsideMenuItemWithSub>
+
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Apps</span>
@@ -96,6 +110,11 @@ export function AsideMenuMain() {
         to='/apps/user-management/users'
         icon='/media/icons/duotune/general/gen051.svg'
         title='User management'
+      />
+      <AsideMenuItem
+        to='/apps/client-management/client'
+        icon='/media/icons/duotune/communication/com006.svg'
+        title='Client management'
       />
       <div className='menu-item'>
         <div className='menu-content'>

@@ -7,6 +7,7 @@ import {MenuTestPage} from '../../pages/MenuTestPage'
 import {getCSSVariableValue} from '../../assets/ts/_utils'
 import {WithChildren} from '../../helpers'
 import BuilderPageWrapper from '../../pages/layout-builder/BuilderPageWrapper'
+import LoadMore from '../modules/posts/comments/LoadMore'
 
 const PrivateRoutes = () => {
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
@@ -15,6 +16,8 @@ const PrivateRoutes = () => {
   const WidgetsPage = lazy(() => import('../modules/widgets/WidgetsPage'))
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
+  const ClientPage = lazy(() => import('../modules/apps/client-management/ClientPage'))
+
 
   return (
     <Routes>
@@ -66,6 +69,14 @@ const PrivateRoutes = () => {
           }
         />
         <Route
+          path='social-media/posts/comments*'
+          element={
+            <SuspensedView>
+             <LoadMore/>
+            </SuspensedView>
+          }
+        />
+        <Route
           path='apps/chat/*'
           element={
             <SuspensedView>
@@ -78,6 +89,14 @@ const PrivateRoutes = () => {
           element={
             <SuspensedView>
               <UsersPage />
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='apps/client-management/*'
+          element={
+            <SuspensedView>
+              <ClientPage />
             </SuspensedView>
           }
         />
