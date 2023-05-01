@@ -2,27 +2,40 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-const LoadMore = () => {
-  const [items, setItems] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
-  const [totalItems, setTotalItems] = useState(0);
+interface Comment {
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}
 
+interface Props {
+  dataLength: number;
+  next: () => Promise<void>;
+  hasMore: boolean;
+  loader: JSX.Element;
+  endMessage: JSX.Element;
+  children?: React.ReactNode;
+}
+
+const LoadMore = () => {
+  const [items, setItems] = useState<Comment[]>([]);
+  const [pageNumber, setPageNumber] = useState<number>(0);
+  const [totalItems, setTotalItems] = useState<number>(0);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const url = `https://jsonplaceholder.typicode.com/comments?_page=${pageNumber+1}&_limit=10`;
+    const url = `https://jsonplaceholder.typicode.com/comments?_page=${pageNumber + 1}&_limit=10`;
     const res = await axios(url);
     setItems(items.concat(res.data));
     setPageNumber(pageNumber + 1);
-    setTotalItems(res.headers["x-total-count"]);
-
+    setTotalItems(parseInt(res.headers["x-total-count"]));
   };
 
-  const hasMoreItems = items.length < totalItems;
-
+  const hasMoreItems: boolean = items.length < totalItems;
 
   return (
     <div>
@@ -38,7 +51,7 @@ const LoadMore = () => {
           </tr>
         </thead>
         <tbody>
-          {items.map((item, index) => (
+          {items.map((item: Comment, index: number) => (
             <tr key={index}>
               <td>{item.id}</td>
               <td>{item.name}</td>
@@ -58,6 +71,7 @@ const LoadMore = () => {
             <b>Yay! You have seen it all</b>
           </p>
         }
+        children={null}
       ></InfiniteScroll>
     </div>
   );
