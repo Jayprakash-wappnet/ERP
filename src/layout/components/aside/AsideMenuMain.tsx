@@ -92,6 +92,12 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/social-media/posts/comments' title='Comments' hasBullet={true} />
       </AsideMenuItemWithSub>
 
+      <AsideMenuItem
+        to='/social-media/user-registration/registration'
+        icon='/media/icons/duotune/communication/com006.svg'
+        title='User Registration'
+      />
+
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Apps</span>

@@ -17,6 +17,7 @@ const PrivateRoutes = () => {
   const ChatPage = lazy(() => import('../modules/apps/chat/ChatPage'))
   const UsersPage = lazy(() => import('../modules/apps/user-management/UsersPage'))
   const ClientPage = lazy(() => import('../modules/apps/client-management/ClientPage'))
+  const UserRegistrationPage = lazy(() => import('../modules/user-registration/UserRegistrationPage'))
 
 
   return (
@@ -69,10 +70,18 @@ const PrivateRoutes = () => {
           }
         />
         <Route
-          path='social-media/posts/comments*'
+          path='social-media/posts/comments/*'
           element={
             <SuspensedView>
              <LoadMore/>
+            </SuspensedView>
+          }
+        />
+        <Route
+          path='social-media/user-registration/*'
+          element={
+            <SuspensedView>
+             <UserRegistrationPage/>
             </SuspensedView>
           }
         />
