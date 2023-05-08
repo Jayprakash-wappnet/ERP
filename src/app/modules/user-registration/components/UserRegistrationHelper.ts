@@ -10,6 +10,12 @@ export interface IRegistration {
   branchName: string
   accountNumber: number
   ifscCode: string
+  sscInstituteName: string
+  sscPercentage: number
+  sscInstituteType: string
+  hscInstituteName: string
+  hscPercentage: number
+  hscInstituteType: string
 }
 
 const UserRegistrationSchemas = [
@@ -26,6 +32,19 @@ const UserRegistrationSchemas = [
     accountNumber: Yup.string().required().label('Account Number'),
     ifscCode: Yup.string().required().label('IFSC code'),
   }),
+  Yup.object({
+    sscInstituteName: Yup.string().required().label('Institute Name'),
+    sscPercentage: Yup.string().required().label('Percentage'),
+    sscInstituteType: Yup.string().required().notOneOf(
+      ["Select Institute Type"],
+      "Please select an institute type"),
+    hscInstituteName: Yup.string().required().label('Institute Name'),
+    hscPercentage: Yup.string().required().label('Percentage'),
+    hscInstituteType: Yup.string().required().notOneOf(
+      ["Select Institute Type"],
+      "Please select an institute type"),
+  
+  })
 ]
 
 const inits: IRegistration = {
@@ -38,6 +57,12 @@ const inits: IRegistration = {
   branchName: 'Ahemdabad',
   accountNumber: 987987987897987,
   ifscCode: 'BARB0123',
+  sscInstituteName: 'Sarvodya High School',
+  sscPercentage: 80.66,
+  sscInstituteType: '1',
+  hscInstituteName: 'Sarvodaya High School',
+  hscPercentage: 67.23,
+  hscInstituteType: '2',
 }
 
 export {UserRegistrationSchemas, inits}

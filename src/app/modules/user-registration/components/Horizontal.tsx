@@ -3,7 +3,6 @@ import {Step1} from './steps/Step1'
 import {Step2} from './steps/Step2'
 import {Step3} from './steps/Step3'
 import {Step4} from './steps/Step4'
-import {Step5} from './steps/Step5'
 import {KTSVG} from '../../../../helpers'
 import {StepperComponent} from '../../../../assets/ts/components'
 import {Formik, Form, FormikValues} from 'formik'
@@ -60,89 +59,167 @@ const Horizontal: FC = () => {
   return (
     <div className='card'>
       <div className='card-body'>
-        <div
-          ref={stepperRef}
-          className='stepper stepper-links d-flex flex-column pt-15'
-          id='kt_create_account_stepper'
-        >
-          <div className='stepper-nav mb-5'>
-            <div className='stepper-item current' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Basic Information</h3>
-            </div>
+      <div
+        ref={stepperRef}
+        // className='stepper stepper-pills stepper-row d-flex flex-column flex-xl-column flex-row-fluid'
+        className='stepper stepper-pills d-flex flex-column pt-15'
 
-            <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Bank details</h3>
-            </div>
+        id='kt_create_account_stepper'
+      >
+        <div className='stepper-nav mb-5 justify-content-center'>
+          {/* begin::Step 1*/}
+          <div className='stepper-item current' data-kt-stepper-element='nav'>
+            {/* begin::Wrapper*/}
+            <div className='stepper-wrapper align-items-center '>
+              {/* begin::Icon*/}
+              <div className='stepper-icon d-flex w-40px h-40px'>
+                <i className='stepper-check fas fa-check'></i>
+                <span className='stepper-number'>1</span>
+              </div>
+              {/* end::Icon*/}
 
-            <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Acadmic details</h3>
+              {/* begin::Label*/}
+              <div className='stepper-label'>
+                <h3 className='stepper-title'>Basic Information</h3>
+              </div>
+              {/* end::Label*/}
             </div>
+            {/* end::Wrapper*/}
 
-            <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Billing Details</h3>
-            </div>
-
-            <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Completed</h3>
-            </div>
+            {/* begin::Line*/}
+            <div className='stepper-line h-40px'></div>
+            {/* end::Line*/}
           </div>
+          {/* end::Step 1*/}
 
-          <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
-            {() => (
-              <Form className='mx-auto mw-600px w-100 pt-15 pb-10' id='kt_create_account_form'>
-                <div className='current' data-kt-stepper-element='content'>
-                  <Step1 />
-                </div>
+          {/* begin::Step 2*/}
+          <div className='stepper-item' data-kt-stepper-element='nav'>
+            {/* begin::Wrapper*/}
+            <div className='stepper-wrapper'>
+              {/* begin::Icon*/}
+              <div className='stepper-icon w-40px h-40px'>
+                <i className='stepper-check fas fa-check'></i>
+                <span className='stepper-number'>2</span>
+              </div>
+              {/* end::Icon*/}
 
-                <div data-kt-stepper-element='content'>
-                  <Step2 />
-                </div>
+              {/* begin::Label*/}
+              <div className='stepper-label'>
+                <h3 className='stepper-title'>Bank Details</h3>
+              </div>
+              {/* end::Label*/}
+            </div>
+            {/* end::Wrapper*/}
 
-                <div data-kt-stepper-element='content'>
-                  <Step3 />
-                </div>
+            {/* begin::Line*/}
+            <div className='stepper-line h-40px'></div>
+            {/* end::Line*/}
+          </div>
+          {/* end::Step 2*/}
 
-                <div data-kt-stepper-element='content'>
-                  <Step4 />
-                </div>
+          {/* begin::Step 3*/}
+          <div className='stepper-item' data-kt-stepper-element='nav'>
+            {/* begin::Wrapper*/}
+            <div className='stepper-wrapper'>
+              {/* begin::Icon*/}
+              <div className='stepper-icon w-40px h-40px'>
+                <i className='stepper-check fas fa-check'></i>
+                <span className='stepper-number'>3</span>
+              </div>
+              {/* end::Icon*/}
 
-                <div data-kt-stepper-element='content'>
-                  <Step5 />
-                </div>
+              {/* begin::Label*/}
+              <div className='stepper-label'>
+                <h3 className='stepper-title'>Acadmic Details</h3>
+              </div>
+              {/* end::Label*/}
+            </div>
+            {/* end::Wrapper*/}
 
-                <div className='d-flex flex-stack pt-15'>
-                  <div className='mr-2'>
-                    <button
-                      onClick={prevStep}
-                      type='button'
-                      className='btn btn-lg btn-light-primary me-3'
-                      data-kt-stepper-action='previous'
-                    >
-                      <KTSVG
-                        path='/media/icons/duotune/arrows/arr063.svg'
-                        className='svg-icon-4 me-1'
-                      />
-                      Back
-                    </button>
-                  </div>
+            {/* begin::Line*/}
+            <div className='stepper-line h-40px'></div>
+            {/* end::Line*/}
+          </div>
+          {/* end::Step 3*/}
 
-                  <div>
-                    <button type='submit' className='btn btn-lg btn-primary me-3'>
-                      <span className='indicator-label'>
-                        {!isSubmitButton && 'Continue'}
-                        {isSubmitButton && 'Submit'}
-                        <KTSVG
-                          path='/media/icons/duotune/arrows/arr064.svg'
-                          className='svg-icon-3 ms-2 me-0'
-                        />
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </Form>
-            )}
-          </Formik>
+          {/* begin::Step 4*/}
+          <div className='stepper-item' data-kt-stepper-element='nav'>
+            {/* begin::Wrapper*/}
+            <div className='stepper-wrapper'>
+              {/* begin::Icon*/}
+              <div className='stepper-icon w-40px h-40px'>
+                <i className='stepper-check fas fa-check'></i>
+                <span className='stepper-number'>4</span>
+              </div>
+              {/* end::Icon*/}
+
+              {/* begin::Label*/}
+              <div className='stepper-label'>
+                <h3 className='stepper-title'>Completed</h3>
+              </div>
+              {/* end::Label*/}
+            </div>
+            {/* end::Wrapper*/}
+
+            {/* begin::Line*/}
+            <div className='stepper-line h-40px'></div>
+            {/* end::Line*/}
+          </div>
+          {/* end::Step 4*/}
         </div>
+
+        <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
+          {() => (
+            <Form className='mx-auto mw-600px w-100 pt-15 pb-10' id='kt_create_account_form'>
+              <div className='current' data-kt-stepper-element='content'>
+                <Step1 />
+              </div>
+
+              <div data-kt-stepper-element='content'>
+                <Step2 />
+              </div>
+
+              <div data-kt-stepper-element='content'>
+                <Step3 />
+              </div>
+
+              <div data-kt-stepper-element='content'>
+                <Step4 />
+              </div>
+
+              <div className='d-flex flex-stack pt-15'>
+                <div className='mr-2'>
+                  <button
+                    onClick={prevStep}
+                    type='button'
+                    className='btn btn-lg btn-light-primary me-3'
+                    data-kt-stepper-action='previous'
+                  >
+                    <KTSVG
+                      path='/media/icons/duotune/arrows/arr063.svg'
+                      className='svg-icon-4 me-1'
+                    />
+                    Back
+                  </button>
+                </div>
+
+                <div>
+                  <button type='submit' className='btn btn-lg btn-primary me-3'>
+                    <span className='indicator-label'>
+                      {!isSubmitButton && 'Continue'}
+                      {isSubmitButton && 'Submit'}
+                      <KTSVG
+                        path='/media/icons/duotune/arrows/arr064.svg'
+                        className='svg-icon-3 ms-2 me-0'
+                      />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
       </div>
     </div>
   )
